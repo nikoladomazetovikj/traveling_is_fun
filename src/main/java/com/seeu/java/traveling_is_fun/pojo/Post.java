@@ -9,8 +9,7 @@ public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name="title")
-
+    @Column(name="title",nullable = false)
     private String title;
     @Lob
     private String content;
@@ -19,7 +18,7 @@ public class Post {
     private User author;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "category_id")
+    @JoinColumn(name = "category_id", nullable = false)
     private Category category;
 
     @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)

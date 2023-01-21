@@ -9,19 +9,19 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "name")
+    @Column(name = "name", nullable = false)
     private String name;
-    @Column(name = "surname")
+    @Column(name = "surname", nullable = false)
     private String surname;
-    @Column(name = "email", unique = true)
+    @Column(name = "email", unique = true, nullable = false)
     private String email;
-    @Column(name = "user_name", unique = true)
+    @Column(name = "user_name", unique = true, nullable = false)
     private String userName;
-    @Column(name = "password")
+    @Column(name = "password", nullable = false)
     private String password;
-    @Column(name = "is_admin", columnDefinition = "boolean default false")
+    @Column(name = "is_admin", columnDefinition = "boolean default false", nullable = false)
     private boolean isAdmin;
-    @Column(name = "is_bloger")
+    @Column(name = "is_bloger", columnDefinition = "boolean default true", nullable = false)
     private boolean isBlogger;
 
     @ManyToMany
