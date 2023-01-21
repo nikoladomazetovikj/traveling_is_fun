@@ -13,17 +13,16 @@ public class User {
     private String name;
     @Column(name = "surname")
     private String surname;
-    @Column(name = "email")
+    @Column(name = "email", unique = true)
     private String email;
-    @Column(name = "user_name")
-
+    @Column(name = "user_name", unique = true)
     private String userName;
     @Column(name = "password")
     private String password;
-    @Column(name = "is_admin")
+    @Column(name = "is_admin", columnDefinition = "boolean default false")
     private boolean isAdmin;
     @Column(name = "is_bloger")
-    private boolean isBloger;
+    private boolean isBlogger;
 
     @ManyToMany
     @JoinTable(
@@ -38,14 +37,14 @@ public class User {
     public User() {
     }
 
-    public User(Long id, String name, String email, String userName, String password, boolean isAdmin, boolean isBloger) {
+    public User(Long id, String name, String email, String userName, String password, boolean isAdmin, boolean isBlogger) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.userName = userName;
         this.password = password;
         this.isAdmin = isAdmin;
-        this.isBloger = isBloger;
+        this.isBlogger = isBlogger;
     }
 
     public User(String name, String surname, String email, String password) {
@@ -103,11 +102,11 @@ public class User {
         isAdmin = admin;
     }
 
-    public boolean isBloger() {
-        return isBloger;
+    public boolean isBlogger() {
+        return isBlogger;
     }
 
-    public void setBloger(boolean bloger) {
-        isBloger = bloger;
+    public void setBlogger(boolean bloger) {
+        isBlogger = bloger;
     }
 }
