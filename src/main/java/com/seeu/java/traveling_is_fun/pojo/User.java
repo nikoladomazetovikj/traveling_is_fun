@@ -1,6 +1,7 @@
 package com.seeu.java.traveling_is_fun.pojo;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -23,6 +24,16 @@ public class User {
     private boolean isAdmin;
     @Column(name = "is_bloger")
     private boolean isBloger;
+
+    @ManyToMany
+    @JoinTable(
+            name = "post_like",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "post_id"))
+    List<Post> likedPosts;
+
+    @OneToMany(mappedBy = "user")
+    List<PostRating> ratings;
 
     public User() {
     }

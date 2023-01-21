@@ -3,7 +3,7 @@ package com.seeu.java.traveling_is_fun.pojo;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "comment")
+@Table(name = "comments")
 public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

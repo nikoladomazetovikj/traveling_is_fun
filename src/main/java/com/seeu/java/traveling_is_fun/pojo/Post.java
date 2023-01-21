@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "post")
+@Table(name = "posts")
 public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -12,21 +12,29 @@ public class Post {
     @Column(name="title")
 
     private String title;
-    @Column(name="content")
+    @Lob
     private String content;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "author_id")
     private User author;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "category_id")
+    private Category category;
+
     @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
     private List<Comment> comments;
 
-    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
-    private List<Like> likes;
+    @ManyToMany(mappedBy = "likedPosts")
+    private List<User> likes;
+
+    @OneToMany(mappedBy = "post")
+    List<PostRating> ratings;
 
     public Post() {
     }
 
-    public Post(Long id, String title, String content, User author, List<Comment> comments, List<Like> likes) {
+    public Post(Long id, String title, String content, User author, List<Comment> comments, List<User> likes) {
         this.id = id;
         this.title = title;
         this.content = content;
@@ -75,11 +83,11 @@ public class Post {
         this.comments = comments;
     }
 
-    public List<Like> getLikes() {
+    public List<User> getLikes() {
         return likes;
     }
 
-    public void setLikes(List<Like> likes) {
+    public void setLikes(List<User> likes) {
         this.likes = likes;
     }
 }
