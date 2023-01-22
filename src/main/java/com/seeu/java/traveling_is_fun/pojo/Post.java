@@ -34,13 +34,15 @@ public class Post {
     public Post() {
     }
 
-    public Post(Long id, String title, String content, User author, List<Comment> comments, List<User> likes) {
+    public Post(Long id, String title, String content, User author, Category category, List<Comment> comments, List<User> likes, List<PostRating> ratings) {
         this.id = id;
         this.title = title;
         this.content = content;
         this.author = author;
+        this.category = category;
         this.comments = comments;
         this.likes = likes;
+        this.ratings = ratings;
     }
 
     public Long getId() {
@@ -75,6 +77,14 @@ public class Post {
         this.author = author;
     }
 
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
     public List<Comment> getComments() {
         return comments;
     }
@@ -89,6 +99,14 @@ public class Post {
 
     public void setLikes(List<User> likes) {
         this.likes = likes;
+    }
+
+    public List<PostRating> getRatings() {
+        return ratings;
+    }
+
+    public void setRatings(List<PostRating> ratings) {
+        this.ratings = ratings;
     }
 }
 
