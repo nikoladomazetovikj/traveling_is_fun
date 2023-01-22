@@ -1,6 +1,7 @@
 package com.seeu.java.traveling_is_fun.pojo;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -23,7 +24,7 @@ public class Post {
     private Category category;
 
     @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
-    private List<Comment> comments;
+    private  List<Comment> comments;
 
     @ManyToMany(mappedBy = "likedPosts")
     private List<User> likes;
@@ -34,15 +35,15 @@ public class Post {
     public Post() {
     }
 
-    public Post(Long id, String title, String content, User author, Category category, List<Comment> comments, List<User> likes, List<PostRating> ratings) {
+    public Post(Long id, String title, String content, User author, Category category) {
         this.id = id;
         this.title = title;
         this.content = content;
         this.author = author;
         this.category = category;
-        this.comments = comments;
-        this.likes = likes;
-        this.ratings = ratings;
+        this.comments = new ArrayList<>();
+        this.likes = new ArrayList<>();
+        this.ratings = new ArrayList<>();
     }
 
     public Long getId() {
