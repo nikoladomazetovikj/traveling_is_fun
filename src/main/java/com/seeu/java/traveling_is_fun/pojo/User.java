@@ -39,21 +39,18 @@ public class User {
     public User() {
     }
 
-    public User(Long id, String name, String email, String userName, String password, boolean isAdmin, boolean isBlogger) {
+    public User(Long id, String name, String country, String surname, String email, String userName, String password, boolean isAdmin, boolean isBlogger, List<Post> likedPosts, List<PostRating> ratings) {
         this.id = id;
         this.name = name;
+        this.country = country;
+        this.surname = surname;
         this.email = email;
         this.userName = userName;
         this.password = password;
         this.isAdmin = isAdmin;
         this.isBlogger = isBlogger;
-    }
-
-    public User(String name, String surname, String email, String password) {
-        this.name = name;
-        this.surname = surname;
-        this.email = email;
-        this.password = password;
+        this.likedPosts = likedPosts;
+        this.ratings = ratings;
     }
 
     public Long getId() {
@@ -70,6 +67,22 @@ public class User {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 
     public String getEmail() {
@@ -108,7 +121,23 @@ public class User {
         return isBlogger;
     }
 
-    public void setBlogger(boolean bloger) {
-        isBlogger = bloger;
+    public void setBlogger(boolean blogger) {
+        isBlogger = blogger;
+    }
+
+    public List<Post> getLikedPosts() {
+        return likedPosts;
+    }
+
+    public void setLikedPosts(List<Post> likedPosts) {
+        this.likedPosts = likedPosts;
+    }
+
+    public List<PostRating> getRatings() {
+        return ratings;
+    }
+
+    public void setRatings(List<PostRating> ratings) {
+        this.ratings = ratings;
     }
 }
