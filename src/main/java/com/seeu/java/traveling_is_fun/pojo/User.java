@@ -11,6 +11,8 @@ public class User {
     private Long id;
     @Column(name = "name", nullable = false)
     private String name;
+    @Column(name="country",nullable = true)
+    private String country;
     @Column(name = "surname", nullable = false)
     private String surname;
     @Column(name = "email", unique = true, nullable = false)
