@@ -17,6 +17,7 @@ public class Post {
     @JoinColumn(name = "author_id")
     private User author;
 
+    @Enumerated(EnumType.ORDINAL)
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id", nullable = false)
     private Category category;
