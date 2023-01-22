@@ -12,4 +12,25 @@ public class Category {
 
     @Enumerated(EnumType.STRING)
     private Categories name;
+
+    public Category(Long id, Categories name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Categories getName() {
+        return name;
+    }
+
+    public void setName(Categories name) {
+        this.name = name;
+    }
 }
