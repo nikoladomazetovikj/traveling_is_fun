@@ -31,16 +31,7 @@ public class PostService {
         postRepository.save(post);
 
     }
-//    public Post editPost(Long id,String title, String content, User author, Category category ){
-//        Post post= postRepository.findById(id);
-//        if(post != null){
-//            post.setTitle(title);
-//            post.setContent(content);
-//            post.setCategory(category);
-//            return postRepository.save(post);
-//        }
-//          return null;
-//    }
+
 
 
 
