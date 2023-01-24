@@ -20,6 +20,9 @@ public class PostRating {
 
     int rating;
 
+    public PostRating() {
+    }
+
     public PostRating(PostRatingKeys id, Post post, User user, int rating) {
         this.id = id;
         this.post = post;
