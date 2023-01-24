@@ -28,7 +28,7 @@ public class PostController {
         postService.createPost(post.getId(), post.getTitle(), post.getContent(), post.getAuthor(), post.getCategory());
 
     }
- 
+
 
 
 
