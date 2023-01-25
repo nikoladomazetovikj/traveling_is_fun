@@ -32,7 +32,7 @@ public class Post {
     @OneToMany(mappedBy = "post")
     List<PostRating> ratings;
 
-    public Post() {
+    public Post(String title, String content, User author, Category category) {
     }
 
     public Post(Long id, String title, String content, User author, Category category) {

@@ -1,6 +1,7 @@
 package com.seeu.java.traveling_is_fun.pojo;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -39,7 +40,7 @@ public class User {
     public User() {
     }
 
-    public User(Long id, String name, String country, String surname, String email, String userName, String password, boolean isAdmin, boolean isBlogger, List<Post> likedPosts, List<PostRating> ratings) {
+    public User(Long id, String name, String country, String surname, String email, String userName, String password, boolean isAdmin, boolean isBlogger) {
         this.id = id;
         this.name = name;
         this.country = country;
@@ -49,8 +50,8 @@ public class User {
         this.password = password;
         this.isAdmin = isAdmin;
         this.isBlogger = isBlogger;
-        this.likedPosts = likedPosts;
-        this.ratings = ratings;
+        this.likedPosts = new ArrayList<>();
+        this.ratings = new ArrayList<>();
     }
 
     public Long getId() {
