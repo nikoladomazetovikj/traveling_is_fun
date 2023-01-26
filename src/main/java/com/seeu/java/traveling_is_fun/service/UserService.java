@@ -1,14 +1,10 @@
 package com.seeu.java.traveling_is_fun.service;
 
-import com.seeu.java.traveling_is_fun.exception.AlreadyDeletedException;
-import com.seeu.java.traveling_is_fun.exception.AlreadyExistsException;
-import com.seeu.java.traveling_is_fun.pojo.Post;
 import com.seeu.java.traveling_is_fun.pojo.User;
 import com.seeu.java.traveling_is_fun.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class UserService {
@@ -18,19 +14,28 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-
+    public List<User> findAllUsers(){
+        return userRepository.findAll();
+    }
     public User getUserById(Long id) {
-          return userRepository.findById(id).get();
+        return userRepository.findById(id).get();
+    }
+    public void createUser(String name,String country, String surname, String email,String userName, String password,Boolean isAdmin,Boolean isBlogger){
+        User user= new User(name,country,surname,email,userName,password,isAdmin,isBlogger);
+        userRepository.save(user);
     }
 
-    //
-//    public void deleteUser(Long id) {
-//        User user= userRepository.findById(id.intValue()).get();
-//        if(userRepository.existsById(id.intValue())) { //ova
-//            userRepository.deleteById(id.intValue());
-//        }
-//        else throw new AlreadyDeletedException("This user has been already deleted");
-//    }
+
+
+    public Boolean deleteUser(Long adminId,Long userId) {
+        User admin = getUserById(adminId);
+        User deleted = getUserById(userId);
+        if (admin.isAdmin()) {
+            userRepository.delete(deleted);
+            return true;
+        }
+        return false;
+    }
     public void save(User user) {
         userRepository.save(user);
     }
