@@ -1,5 +1,8 @@
 package com.seeu.java.traveling_is_fun.pojo;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,41 +17,31 @@ public class Post {
     private String title;
     @Lob
     private String content;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "author_id")
     private User author;
 
-    @Enumerated(EnumType.ORDINAL)
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "category_id", nullable = false)
-    private Category category;
+    private String category;
 
     @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
+    @JsonManagedReference
     private  List<Comment> comments;
 
     @ManyToMany(mappedBy = "likedPosts")
+    @JsonManagedReference
     private List<User> likes;
 
     @OneToMany(mappedBy = "post")
     List<PostRating> ratings;
 
-    public Post() {
-    }
-
-    public Post(String title, String content, User author, Category category) {
-
-    }
-
-    public Post(Long id, String title, String content, User author, Category category) {
-        this.id = id;
+    public Post(String title, String content, User author, String category) {
         this.title = title;
         this.content = content;
         this.author = author;
         this.category = category;
-        this.comments = new ArrayList<>();
-        this.likes = new ArrayList<>();
-        this.ratings = new ArrayList<>();
     }
+
+    public Post() {}
 
     public Long getId() {
         return id;
@@ -82,11 +75,11 @@ public class Post {
         this.author = author;
     }
 
-    public Category getCategory() {
+    public String getCategory() {
         return category;
     }
 
-    public void setCategory(Category category) {
+    public void setCategory(String category) {
         this.category = category;
     }
 

@@ -1,5 +1,8 @@
 package com.seeu.java.traveling_is_fun.pojo;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +35,7 @@ public class User {
             name = "post_like",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "post_id"))
+    @JsonBackReference
     List<Post> likedPosts;
 
     @OneToMany(mappedBy = "user")
@@ -40,8 +44,7 @@ public class User {
     public User() {
     }
 
-    public User(Long id, String name, String country, String surname, String email, String userName, String password, boolean isAdmin, boolean isBlogger) {
-        this.id = id;
+    public User(String name, String country, String surname, String email, String userName, String password, boolean isAdmin, boolean isBlogger) {
         this.name = name;
         this.country = country;
         this.surname = surname;

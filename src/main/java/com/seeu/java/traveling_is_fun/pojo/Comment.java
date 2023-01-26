@@ -1,5 +1,7 @@
 package com.seeu.java.traveling_is_fun.pojo;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 
 @Entity
@@ -12,16 +14,18 @@ public class Comment {
     private String text;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "post_id", nullable = false)
+    @JsonBackReference
     private Post post;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
+    public Comment() {
+
+    }
 
 
-
-    public Comment(Long id, String text, Post post, User user) {
-        this.id = id;
+    public Comment(String text, Post post, User user) {
         this.text = text;
         this.post = post;
         this.user = user;
