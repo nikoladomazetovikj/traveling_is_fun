@@ -1,6 +1,14 @@
 # Traveling Is Fun
 SEEU - Programming In Java final project 
 
+# Introduction
+
+Traveling is the most beautiful part of life, but very often we
+wonder which destination we would visit next. Therefore, with
+the help of TravelingIsFun, you will be able to see how the rest
+of you have fared on the trip that you may have planned to go
+on and start the adventures and share it with other users.
+
 # Project SetUp
 
 1. First clone this repository using following commands:
