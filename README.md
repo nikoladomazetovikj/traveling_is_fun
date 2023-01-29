@@ -9,6 +9,10 @@ the help of TravelingIsFun, you will be able to see how the rest
 of you have fared on the trip that you may have planned to go
 on and start the adventures and share it with other users.
 
+# Table of contents
+
+- [Project SetUp](#project-setup)
+
 # Project SetUp
 
 1. First clone this repository using following commands:
@@ -66,3 +70,70 @@ spring.jpa.database-platform=org.hibernate.dialect.MariaDBDialect
    2. Start the database server
    3. Run the application
    4. The default port is `localhost:8080`
+
+
+# Database DDL
+
+Here you can look at the database DDL:
+
+1. Tables
+```aidl
+create table categories
+(
+    id   bigint  null,
+    name integer null
+);
+
+create table users
+(
+    id        bigint       null,
+    country   varchar(255) null,
+    email     varchar(255) null,
+    is_admin  tinyint      null,
+    is_bloger tinyint      null,
+    name      varchar(255) null,
+    password  varchar(255) null,
+    surname   varchar(255) null,
+    user_name varchar(255) null
+);
+
+
+create table posts
+(
+    id        bigint       null,
+    category  varchar(255) null,
+    content   longtext     null,
+    title     varchar(255) null,
+    author_id bigint       null
+);
+
+
+create table comments
+(
+    id      bigint       null,
+    text    varchar(255) null,
+    post_id bigint       null,
+    user_id bigint       null
+);
+
+
+create table post_like
+(
+    user_id bigint null,
+    post_id bigint null
+);
+
+
+create table post_rating
+(
+    post_id bigint  null,
+    user_id bigint  null,
+    rating  integer null
+);
+
+
+```
+
+
+
+
