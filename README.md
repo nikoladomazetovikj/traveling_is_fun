@@ -60,7 +60,7 @@ spring.jpa.database-platform=org.hibernate.dialect.MariaDBDialect
 10. Start the application: 
  - You must have some server like `APACHE`, `NGINX`
  - You should have `MySQL` database server setup
- - To test the application you can use every browser (only for the `GET` requests`, or you can use `Postman` or `Insomnia`
+ - To test the application you can use every browser (only for the `GET` requests, or you can use `Postman` or `Insomnia`
 
     1. Start your local server
    2. Start the database server
