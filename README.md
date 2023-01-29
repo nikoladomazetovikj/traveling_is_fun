@@ -12,6 +12,7 @@ on and start the adventures and share it with other users.
 # Table of contents
 
 - [Project SetUp](#project-setup)
+- [Database DDL](#database-ddl)
 
 # Project SetUp
 
@@ -77,7 +78,7 @@ spring.jpa.database-platform=org.hibernate.dialect.MariaDBDialect
 Here you can look at the database DDL:
 
 1. Tables
-```aidl
+```sql
 create table categories
 (
     id   bigint  null,
