@@ -134,6 +134,11 @@ create table post_rating
 
 ```
 
+2. ERD Diagram
+
+![traveling_is_fun](https://user-images.githubusercontent.com/58082595/215331760-f38d8e9a-ca53-4d4b-bcf4-2c88d8d20330.png)
+
+
 
 
 
